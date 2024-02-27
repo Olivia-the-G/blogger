@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "post_title": "Introduction to Blogging",
+    "content": "In this blog post, we will explore the basics of blogging and how to get started.",
+    "user_id": 1,
+    "date_created": "2022-01-01"
+  },
+  {
+    "id": 2,
+    "post_title": "Tips for Writing Engaging Blog Posts",
+    "content": "Learn some valuable tips and techniques to make your blog posts more engaging and captivating.",
+    "user_id": 2,
+    "date_created": "2022-01-05"
+  },
+  {
+    "id": 3,
+    "post_title": "The Importance of SEO in Blogging",
+    "content": "Discover why search engine optimization (SEO) is crucial for the success of your blog.",
+    "user_id": 3,
+    "date_created": "2022-01-10"
+  }
+]
