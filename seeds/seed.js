@@ -12,7 +12,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-
+  
   for (const post of postData) {
     await BlogPost.create({
       ...post,

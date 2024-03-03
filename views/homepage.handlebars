@@ -1,17 +1,14 @@
-// when clicking on a post it needs to include - post title, contents, creator's username, date posted, and comments/option to leave comments
-
-// when user posts a comment it is displayed below the post with the username and date posted
-{{#each blogPosts as |post| }}
+{{#each blogPosts as |blogPost| }}
 <div class="row mb-4 post">
   <div class="col-md-5">
     <h2>
-      <a href="/post/{{post.id}}">{{post.title}}</a>
+      <a href="/blogpost/{{blogPost.id}}">{{blogPost.title}}</a>
     </h2>
-    <p>Created by {{post.user.username}} on {{format_date post.date_created}}</p>
+    <p>Creator: {{blogPost.user.username}} Posted: {{format_date blogPost.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{post.content}}
+      {{blogPost.content}}
     </p>
   </div>
 </div>
