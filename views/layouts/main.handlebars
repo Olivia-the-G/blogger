@@ -12,11 +12,20 @@
   <div>
     <header>
       <nav>
-        <ul>
+        {{!-- If the user is logged in, show the logout button --}}
+        {{#if logged_in}}
+          <ul>
+            <li><a href="/">Home</a></li>
+            <button id="logoutBtn">Logout</button>
+            <li><a href="/dashboard">Dashboard</a></li>
+          </ul>
+        {{else}}
+                <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/login">Login</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
         </ul>
+        {{/if}}
       </nav>
       <h1 class="title">Tech Blog</h1>
     </header>
@@ -29,7 +38,7 @@
 
   {{#if logged_in}}
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/js/script.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
