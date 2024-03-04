@@ -1,16 +1,3 @@
-
-{{#each blogPosts as |blogPost| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      <a href="/blogpost/{{blogPost.id}}">{{blogPost.title}}</a>
-    </h2>
-    <p>Creator: {{blogPost.user.username}} Posted: {{format_date blogPost.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{blogPost.content}}
-    </p>
-  </div>
+<div>
+  This is the homepage
 </div>
-{{/each}}

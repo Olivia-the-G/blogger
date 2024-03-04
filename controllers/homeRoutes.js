@@ -92,9 +92,9 @@ router.get('/dashboard', logLock, async (req, res) => {
 
 // serve up login page when user is not logged in
 router.get('/login', (req, res) => {
-  // if the user is already logged in, redirect to the home page
+  // if the user is already logged in, redirect to the dashboard
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
   // otherwise, render the 'login' template
