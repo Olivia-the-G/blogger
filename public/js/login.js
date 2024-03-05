@@ -30,7 +30,8 @@ const loginRouteHandler = async (event) => {
 };
 
 // attach event listener to the login form
-document.querySelector('.loginForm').addEventListener('submit', loginRouteHandler);
+document.querySelector('.loginForm')
+document.addEventListener('submit', loginRouteHandler);
 
 // signup route
 const signupRouteHandler = async (event) => {
@@ -63,4 +64,5 @@ const signupRouteHandler = async (event) => {
 };
 
 // attach event listener to the signup form
-document.querySelector('.signupForm').addEventListener('submit', signupRouteHandler);
+document.querySelector('.signupForm')
+document.addEventListener('submit', signupRouteHandler);
