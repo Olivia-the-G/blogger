@@ -18,9 +18,10 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    const posts = blogPostData.map((post) => post.get({ plain: true }));
+    const blogposts = blogPostData.map((blogpost) => blogpost.get({ plain: true }));
     // Pass serialized data and session flag into template
     res.render('homepage', {
+      blogposts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -56,11 +57,11 @@ router.get('/blogpost/:id', async (req, res) => {
       return;
     }
 
-    const post = blogPostData.get({ plain: true });
+    const blogpost = blogPostData.get({ plain: true });
 
     // pass serialized data and session flag into template
     res.render('blogpost', {
-      ...post,
+      blogpost,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -80,9 +81,21 @@ router.get('/dashboard', logLock, async (req, res) => {
     //serialize user data
     const user = userData.get({ plain: true });
 
-    // render the dashboard template, passing the user data
+     // Get all posts
+     const blogPostData = await BlogPost.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+    const blogposts = blogPostData.map((blogpost) => blogpost.get({ plain: true }));
+
+    // render the dashboard template, passing the user data and blogposts
     res.render('dashboard', {
-      ...user,
+      user,
+      blogposts,
       logged_in: true
     });
   } catch (err) {
