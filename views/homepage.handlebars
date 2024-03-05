@@ -1,5 +1,15 @@
-// shows existing blog posts with the post title and the date posted
+<header>
+  <h2>Current Posts</h2>
+</header>
 
-// when clicking on a post it needs to include - post title, contents, creator's username, date posted, and comments/option to leave comments
-
-// when user posts a comment it is displayed below the post with the username and date posted
+{{#each blogposts as |blogpost|}}
+<div class="blog-post">
+  <div class="post-header">
+    <h2>{{blogpost.post_title}}</h2>
+    <p>Created: {{blogpost.date_created}}</p>
+  </div>
+  <div class="post-content">
+    <p>{{blogpost.content}}</p>
+  </div>
+</div>
+{{/each}}

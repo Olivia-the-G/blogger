@@ -5,18 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blogger</title>
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <div>
     <header>
       <nav>
-        <ul>
+        {{!-- If the user is logged in, show the logout button --}}
+        {{#if logged_in}}
+          <ul>
+            <li><a href="/">Home</a></li>
+            <button id="logoutBtn">Logout</button>
+            <li><a href="/dashboard">Dashboard</a></li>
+          </ul>
+        {{else}}
+                <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/login">Login</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
         </ul>
+        {{/if}}
       </nav>
       <h1 class="title">Tech Blog</h1>
     </header>
@@ -27,10 +36,9 @@
     </main>
   </div>
 
-  {{!-- Render script for logged in users only --}}
   {{#if logged_in}}
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/public/js/script.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
