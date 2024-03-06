@@ -1,10 +1,9 @@
+const router = require('express').Router();
 const { BlogPost } = require('../models');
 const { User } = require('../models');
 const { Comment } = require('../models');
-
 const logLock = require('../utils/logLock');
 
-const router = require('express').Router();
 
 //get all posts
 router.get('/', async (req, res) => {
@@ -29,12 +28,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-//get one post
+// Get one post with its comments
 router.get('/blogposts/:id', logLock, async (req, res) => {
   try {
-    // get post by its id
+    // Get post by its id along with comments
     const blogPostData = await BlogPost.findByPk(req.params.id, {
-      // include creator, comments and their creators
       include: [
         {
           model: User,
@@ -52,6 +50,20 @@ router.get('/blogposts/:id', logLock, async (req, res) => {
       ],
     });
 
+    console.log(blogPostData);
+
+    const commentData = await Comment.findAll({
+      where: {
+        blogpost_id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
     if (!blogPostData) {
       res.status(404).json({ message: 'No post found with this id' });
       return;
@@ -59,9 +71,19 @@ router.get('/blogposts/:id', logLock, async (req, res) => {
 
     const blogpost = blogPostData.get({ plain: true });
 
-    // pass serialized data and session flag into template
+    // Extract comments from the blog post data
+    const comments = commentData.map(comment => comment.get({ plain: true }));
+
+    if (comments.length === 0) {
+      comments = "No comments yet";
+    }
+
+    console.log(comments);
+
+    // Render the blog post along with its comments
     res.render('blogpost', {
       blogpost,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {

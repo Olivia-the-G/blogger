@@ -44,23 +44,14 @@ a {
   color:midnightblue
 }
 
+h2 a {
+  color: black;
+}
+
 .title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.article {
-  margin-bottom: 20px;
-}
-
-.article h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.article p {
-  line-height: 1.5;
 }
 
 .footer {
@@ -106,6 +97,7 @@ a {
 
 .post-content {
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 /* New Post Form */
@@ -199,4 +191,51 @@ form.all-forms {
   font-size: 16px;
   margin: 0px 10px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#new-comment-btn {
+  margin-bottom: 8px;
+}
+
+/* comments section */
+
+#single-post {
+  margin: 0px 50px;
+}
+
+.comments-section {
+  margin: 20px 15px;
+  padding: 20px;
+  background-color: lightcyan;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.comment {
+  padding: 10px;
+  background-color:rgb(120, 201, 204);
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+#comment-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#comment-content {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input#comment-form-content {
+  height: 50px;
+  width: 500px;
+  font-size: 15px;
+  padding: 3px;
+  margin: 5px 0px;
 }

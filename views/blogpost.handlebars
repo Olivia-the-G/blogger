@@ -15,7 +15,7 @@
   <div class="comments-section">
     <form class="form" id="new-comment">
       <h4>Write a Comment:</h4>
-      <input type="text" id="comment-content" required>
+      <input type="text" id="comment-form-content" required>
       <br>
       <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
     </form>
@@ -24,7 +24,7 @@
     {{#each comments as |comment|}}
     <div class="comment">
       <div id="comment-header">
-        <p>{{comment.user_id}}</p>
+        <p>{{comment.user.username}}</p>
         <p>{{comment.date_created}}</p>
       </div>
       <div id="comment-content">
