@@ -50,8 +50,6 @@ router.get('/blogposts/:id', logLock, async (req, res) => {
       ],
     });
 
-    console.log(blogPostData);
-
     const commentData = await Comment.findAll({
       where: {
         blogpost_id: req.params.id
@@ -74,11 +72,9 @@ router.get('/blogposts/:id', logLock, async (req, res) => {
     // Extract comments from the blog post data
     const comments = commentData.map(comment => comment.get({ plain: true }));
 
-    if (comments.length === 0) {
-      comments = "No comments yet";
+    if (!comments) {
+      comments = "";
     }
-
-    console.log(comments);
 
     // Render the blog post along with its comments
     res.render('blogpost', {

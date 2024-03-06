@@ -193,10 +193,6 @@ form.all-forms {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#new-comment-btn {
-  margin-bottom: 8px;
-}
-
 /* comments section */
 
 #single-post {
@@ -216,6 +212,7 @@ form.all-forms {
   background-color:rgb(120, 201, 204);
   border: solid 1px black;
   border-radius: 5px;
+  margin: 10px 0px;
 }
 
 #comment-header {
