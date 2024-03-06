@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { BlogPost } = require('../../models');
+const { User } = require('../../models');
+const { Comment } = require('../../models');
 const logLock = require('../../utils/logLock');
 
 // create a new blog post + update dashboard
