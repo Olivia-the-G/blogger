@@ -42,7 +42,14 @@ nav ul li {
 
 a {
   text-decoration: none;
-  color: var(--cream);
+}
+
+.all-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 30px;
+  padding: 10px;
 }
 
 .title {
@@ -90,4 +97,34 @@ a {
 
 .post-content {
   font-size: 16px;
+}
+
+#new-post-form {
+  padding-top: 10px;
+}
+
+#post-content {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+input#post-content {
+  height: 100px;
+  width: 400px;
+}
+
+input#post-title {
+  width: 350px;
+}
+
+label#post-content {
+  display: flex;
+  flex-direction: row;
+  justify-self: start;
 }
