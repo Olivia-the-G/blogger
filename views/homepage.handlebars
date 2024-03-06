@@ -6,8 +6,8 @@
   {{#each blogposts as |blogpost|}}
   <div class="blog-post">
     <div class="post-header">
-      <h2>{{blogpost.post_title}}</h2>
-      <p>Created: {{blogpost.date_created}}</p>
+      <h2><a href="/blogposts/{{blogpost.id}}">{{blogpost.post_title}}</a></h2>
+      <p>{{blogpost.date_created}}</p>
     </div>
     <div class="post-content">
       <p>{{blogpost.content}}</p>

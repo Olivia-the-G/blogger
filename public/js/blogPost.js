@@ -33,12 +33,3 @@ const newPostHandler = async (event) => {
 // event listener for the new post button
 document.querySelector('new-post-form')
 document.addEventListener('submit', newPostHandler);
-
-// new comment event handler
-const newCommentHandler = async (event) => {
-  event.preventDefault();
-};
-
-// event listener for the new comment button
-document.getElementById('new-comment')
-document.addEventListener('submit', newCommentHandler);

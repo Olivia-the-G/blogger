@@ -1,36 +1,39 @@
-<div class="blog-post">
-  <div class="post-header">
-    <h2>{{blogpost.post_title}}</h2>
-    <p>Created: {{blogpost.date_created}}</p>
-  </div>
-  <div class="post-content">
-    <p>{{blogpost.content}}</p>
-  </div>
-  <button id="edit-post">Edit Post</button>
-  <button id="delete-post">Delete Post</button>
-  
-  {{!-- create new comment --}}
-  <div>
-    <h4>Write a Comment:</h4>
-    <form class="form" id="new-comment">
-      <input type="text" id="comment-content" required>
-      <br>
-      <button type="submit">Post</button>
-    </form>
+<div id="single-post">
+  <div class="blog-post">
+    <div class="post-header">
+      <h2><a href="/blogposts/{{blogpost.id}}">{{blogpost.post_title}}</a></h2>
+      <p>{{blogpost.date_created}}</p>
+    </div>
+    <div class="post-content">
+      <p>{{blogpost.content}}</p>
+    </div>
+    <button class="pretty-btn" id="edit-post" type="submit">Edit Post</button>
+    <button class="pretty-btn" id="delete-post" type="submit">Delete Post</button>
   </div>
 
-  {{!-- show all comments for the post --}}
-  {{#each comments as |comment|}}
-  <div class="comment">
-    <div id="comment-header">
-      <p>{{comment.user_id}}</p>
-      <p>{{comment.date_created}}</p>
+  {{!-- create new comment --}}
+  <div class="comments-section">
+    <form class="form" id="new-comment">
+      <h4>Write a Comment:</h4>
+      <input type="text" id="comment-content" required>
+      <br>
+      <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
+    </form>
+
+    {{!-- show all comments for the post --}}
+    {{#each comments as |comment|}}
+    <div class="comment">
+      <div id="comment-header">
+        <p>{{comment.user_id}}</p>
+        <p>{{comment.date_created}}</p>
+      </div>
+      <div id="comment-content">
+        <p>{{comment.content}}</p>
+      </div>
+      <button class="pretty-btn" id="edit-comment" type="submit">Edit Comment</button>
+      <button class="pretty-btn" id="delete-comment" type="submit">Delete Comment</button>
     </div>
-    <div id="comment-content">
-      <p>{{comment.content}}</p>
-    </div>
-    <button id="edit-comment">Edit Comment</button>
-    <button id="delete-comment">Delete Comment</button>
+    {{/each}}
   </div>
-  {{/each}}
 </div>
+

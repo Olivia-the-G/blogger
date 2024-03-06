@@ -20,10 +20,13 @@ const seedDatabase = async () => {
     });
   }
 
+  const blogposts = await BlogPost.findAll();
+
   for (const comment of commentData) {
     await Comment.create({
       ...comment,
       user_id: users[Math.floor(Math.random() * users.length)].id,
+      blogpost_id: blogposts[Math.floor(Math.random() * blogposts.length)].id
     });
   }
 
