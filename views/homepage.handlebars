@@ -2,14 +2,16 @@
   <h2>Current Posts</h2>
 </header>
 
-{{#each blogposts as |blogpost|}}
-<div class="blog-post">
-  <div class="post-header">
-    <h2>{{blogpost.post_title}}</h2>
-    <p>Created: {{blogpost.date_created}}</p>
+<div id="blog-posts-home">
+  {{#each blogposts as |blogpost|}}
+  <div class="blog-post">
+    <div class="post-header">
+      <h2>{{blogpost.post_title}}</h2>
+      <p>Created: {{blogpost.date_created}}</p>
+    </div>
+    <div class="post-content">
+      <p>{{blogpost.content}}</p>
+    </div>
   </div>
-  <div class="post-content">
-    <p>{{blogpost.content}}</p>
-  </div>
+  {{/each}}
 </div>
-{{/each}}
