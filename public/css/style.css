@@ -4,8 +4,6 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--cream);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -28,6 +26,7 @@ nav {
   padding: 10px;
   border: solid 1px rgb(136, 136, 136);
   border-radius: 5px;
+  font-size: 16px;
 }
 
 nav ul {
@@ -42,14 +41,6 @@ nav ul li {
 
 a {
   text-decoration: none;
-}
-
-.all-forms {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 20px 30px;
-  padding: 10px;
 }
 
 .title {
@@ -72,14 +63,25 @@ a {
 }
 
 .footer {
-  background-color: var(--dark-brown);
-  color: var(--cream);
   padding: 10px 0;
   text-align: center;
 }
 
+/* Dashboard formatting */
+
+.dash {
+  display: flex;
+  flex-direction: row;
+}
+
+#blog-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Blog Post formatting */
 .blog-post {
-  margin: 20px 30px;
+  margin: 10px 15px;
   padding: 10px;
   background-color:cadetblue;
   border: solid 1px black;
@@ -99,14 +101,24 @@ a {
   font-size: 16px;
 }
 
-#new-post-form {
-  padding-top: 10px;
+/* New Post Form */
+
+#new-post h3 {
+  margin: auto;
+  text-align: center;
 }
 
-#post-content {
-  margin-top: 5px;
+#new-post-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 20px;
+  padding: 10px 25px;
+  background-color:cadetblue;
+  border: solid 1px black;  
+  border-radius: 5px;
+  justify-content: center;
+  width: 400px;
 }
 
 input {
@@ -117,14 +129,57 @@ input {
 input#post-content {
   height: 100px;
   width: 400px;
+  margin-right: 2px;
 }
 
 input#post-title {
   width: 350px;
 }
 
-label#post-content {
+/* Login Page */
+
+input#login-username, input#login-password, input#signup-username, input#signup-password{
+  width: 200px;
   display: flex;
   flex-direction: row;
-  justify-self: start;
+  font-size: 15px;
+  padding: 3px;
+}
+
+label {
+  padding: 3px;
+  font-size: 18px;
+}
+
+form.all-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px;
+  background-color:cadetblue;
+  border: solid 1px black;  
+  border-radius: 5px;
+  justify-content: center;
+}
+
+#login-page {
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/* buttons */
+
+.pretty-btn {
+  background-color: lightcyan;
+  border: solid double 1px rgb(27, 27, 27);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.nav-btn {
+  
 }
