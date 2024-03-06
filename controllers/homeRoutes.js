@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 //get one post
-router.get('/blogpost/:id', async (req, res) => {
+router.get('/blogposts/:id', logLock, async (req, res) => {
   try {
     // get post by its id
     const blogPostData = await BlogPost.findByPk(req.params.id, {
