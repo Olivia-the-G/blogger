@@ -7,7 +7,7 @@
     <div class="post-content">
       <p>{{blogpost.content}}</p>
     </div>
-    <button class="pretty-btn" id="edit-post-btn" data-post-id="{{blogpost.id}}" type="submit">Edit Post</button>
+    <button class="pretty-btn" id="edit-post-btn" type="submit">Edit Post</button>
     <button class="pretty-btn" id="delete-post-btn" type="submit">Delete Post</button>
   </div>
 
@@ -21,7 +21,7 @@
       <label for="edit-post-content">Content:</label>
       <input type="text" id="edit-post-content" required>
       <br>
-      <button class="pretty-btn" type="submit">Save Changes</button>
+      <button class="pretty-btn" id="save-post-btn" type="submit">Save Changes</button>
     </form>
   </div>
 
@@ -33,6 +33,14 @@
       <input type="text" id="comment-form-content" required>
       <br>
       <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
+    </form>
+
+    <form class="edit-comment-form" style="display: none;">
+      <h4>Write a Comment:</h4>
+      <input type="hidden" id="edit_blogpost-id" value="{{blogpost.id}}">
+      <input type="text" id="edit-comment-content" required>
+      <br>
+      <button class="pretty-btn" id="save-comment-btn" type="submit">Save Changes</button>
     </form>
 
     {{!-- show all comments for the post --}}
@@ -52,5 +60,6 @@
   </div>
 </div>
 
-<script src="/js/comment.js"></script>
 <script src="/js/blogpost.js"></script>
+<script src="/js/comment.js"></script>
+

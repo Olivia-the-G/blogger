@@ -1,50 +1,16 @@
-// new post event handler
-const newPostHandler = async (event) => {
-  event.preventDefault();
-
-  // convert the title and content to JSON
-  const post_title = document.querySelector('#post-title').value.trim();
-  const post_content = document.querySelector('#post-content').value.trim();
-
-  // fetch the new post route
-  if (post_title && post_content) {
-    try {
-      console.log(JSON.stringify({ post_title, post_content }))
-      const response = await fetch('/api/blogposts', {
-        method: 'POST',
-        body: JSON.stringify({ post_title, post_content }),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      // redirect to the updated dashboard once the new post is created
-      if (response.ok) {
-        document.location.replace('/dashboard');
-        console.log('New post created');
-      } else {
-        throw new Error(response.statusText);
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  }
-};
-
-// event listener for the new post button
-document.querySelector('new-post-form')
-document.addEventListener('submit', newPostHandler);
-
 
 // add event listener to edit button
-const editBtn = document.getElementById('edit-post-btn')
+const editBtn = document.querySelector('#edit-post-btn')
 editBtn.addEventListener('click', triggerEditPost);
 
 // trigger edit post form when edit button is clicked
 function triggerEditPost(event) {
-  const postId = event.target.getAttribute('data-post-id');
-
+  // const postId = event.target.getAttribute('data-post-id').value;
+  const blogpost_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
   // fetch existing post data
-  fetch(`/api/blogposts/${postId}`)
+  fetch(`/api/blogposts/${blogpost_id}`)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -68,5 +34,46 @@ function triggerEditPost(event) {
   }
   
   event.preventDefault();
+};
+
+// handle the edit post form submission
+const editPostHandler = async (event) => {
+  event.preventDefault();
+
+  // get the post id from the edit button
+  const blogpost_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+  // convert the title and content to JSON
+  const post_title = document.querySelector('#edit-post-title').value.trim();
+  const post_content = document.querySelector('#edit-post-content').value.trim();
+
+  const postData = { post_title, post_content };
+
+  // fetch the update post route
+  try {
+    const response = await fetch(`/api/blogposts/${blogpost_id}`, {
+      method: 'PUT',
+      body: JSON.stringify(postData),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    // reload page
+    if (response.ok) {
+      document.location.replace('/dashboard');
+      console.log('Post updated');
+    } else {
+      throw new Error(response.statusText);
+    }
+  } catch (error) {
+    alert(error.message);
+  }
 }
+
+// event listener for the edit post form
+const editPostSubmit = document.querySelector('#edit-post-form')
+editPostSubmit.addEventListener('submit', editPostHandler);
 
