@@ -16,8 +16,24 @@ router.post('/', logLock, async (req, res) => {
   }
 });
 
-
 // update a blog post by its id
+router.put('/:id', logLock, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.update({
+      post_title: req.body.post_title,
+      content: req.body.post_content,
+    },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        }
+      });
+    res.status(200).json(blogPostData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 // delete a blog post by its id
 

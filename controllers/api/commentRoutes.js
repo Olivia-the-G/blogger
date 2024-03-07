@@ -15,4 +15,8 @@ router.post('/', loglock, async (req, res) => {
   }
 });
 
+// update comment by it's id
+
+// delete comment by it's id
+
 module.exports = router;
