@@ -1,6 +1,6 @@
 
 // add event listener to edit button
-const editBtn = document.querySelector('#edit-post-btn')
+const editBtn = document.getElementById('edit-post-btn')
 editBtn.addEventListener('click', triggerEditPost);
 
 // trigger edit post form when edit button is clicked

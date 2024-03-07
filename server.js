@@ -4,6 +4,7 @@ const routes = require('./controllers');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const filterByUserId = require('./utils/helper');
+const logLock = require('./utils/logLock');
 
 
 const sequelize = require('./config/connection');
@@ -14,7 +15,8 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({
   helpers: {
-    filterByUserId: filterByUserId
+    filterByUserId,
+    logLock
   }
 });
 
