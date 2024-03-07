@@ -77,3 +77,36 @@ const editPostHandler = async (event) => {
 const editPostSubmit = document.querySelector('#edit-post-form')
 editPostSubmit.addEventListener('submit', editPostHandler);
 
+// delete post event handler
+const deletePostHandler = async (event) => {
+  event.preventDefault();
+
+  // get the post id
+  const blogpost_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+  // fetch the delete post route
+  try {
+    const response = await fetch(`/api/blogposts/${blogpost_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    // redirect to dashboard
+    if (response.ok) {
+      document.location.replace('/dashboard');
+      console.log('Post deleted');
+    } else {
+      throw new Error(response.statusText);
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+// event listener for the delete post button
+const deletePostSubmit = document.querySelector('#delete-post-btn')
+deletePostSubmit.addEventListener('click', deletePostHandler);

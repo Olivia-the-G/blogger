@@ -56,5 +56,18 @@ router.put('/:id', logLock, async (req, res) => {
 });
 
 // delete a blog post by its id
+router.delete('/:id', logLock, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      }
+    });
+    res.status(200).json(blogPostData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
