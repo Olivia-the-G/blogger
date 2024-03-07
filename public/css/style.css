@@ -46,6 +46,7 @@ a {
 
 h2 a {
   color: black;
+  margin-right: 30px;
 }
 
 .title {
@@ -59,11 +60,21 @@ h2 a {
   text-align: center;
 }
 
+#home-header {
+  text-align: center;
+  margin: 10px 55px;
+  background-color: beige;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
 /* Dashboard formatting */
 
 .dash {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 #blog-posts {
@@ -77,6 +88,15 @@ h2 a {
   margin: 10px 50px;
 }
 
+#dash-posts {
+  text-align: center;
+  margin: 10px 15px;
+  background-color: beige;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
 /* Blog Post formatting */
 .blog-post {
   margin: 10px 15px;
@@ -84,6 +104,7 @@ h2 a {
   background-color:cadetblue;
   border: solid 1px black;
   border-radius: 5px;
+  width: stretch;
 }
 
 .post-header {

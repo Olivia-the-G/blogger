@@ -19,8 +19,9 @@
     </form>
   </div>
   <div id="blog-posts">
+    <h2 id="dash-posts">My Posts</h2>
   {{!-- show all posts --}}
-  {{#each blogposts as |blogpost|}}
+{{#each (filterByUserId blogposts user.id) as |blogpost|}}
   <div class="blog-post">
     <div class="post-header">
       <h2><a href="/blogposts/{{blogpost.id}}">{{blogpost.post_title}}</a></h2>
@@ -30,7 +31,7 @@
       <p>{{blogpost.content}}</p>
     </div>
   </div>
-  {{/each}}
+{{/each}}
   </div>
 </div>
 

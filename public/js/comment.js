@@ -7,7 +7,7 @@ const newCommentHandler = async (event) => {
   const blogpost_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  // fetch the new comment route
+    // fetch the new comment route
   if (content) {
     try {
       const response = await fetch('/api/comments', {
