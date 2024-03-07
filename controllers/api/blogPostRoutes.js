@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { BlogPost } = require('../../models');
+const { User } = require('../../models');
 const logLock = require('../../utils/logLock');
 
 // create a new blog post + update dashboard
@@ -13,6 +14,25 @@ router.post('/', logLock, async (req, res) => {
     res.status(200).json(blogPostData);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// get a single blogpost by its id
+router.get('/:id', logLock, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
+      include: [User]
+    });
+
+    if (!blogPostData) {
+      res.status(404).json({ message: 'No blog post found with this id!' });
+      return;
+    }
+
+    // return data in JSON format
+    res.json(blogPostData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

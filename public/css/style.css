@@ -104,7 +104,6 @@ h2 a {
   background-color:cadetblue;
   border: solid 1px black;
   border-radius: 5px;
-  width: stretch;
 }
 
 .post-header {
@@ -156,6 +155,41 @@ input#post-content {
 
 input#post-title {
   width: 350px;
+  font-size: 15px;
+  padding: 3px;
+}
+
+/* Edit Post Form */
+
+#edit-post h3 {
+  margin: auto;
+  text-align: center;
+}
+
+#edit-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 15px 15px;
+  padding: 10px 25px;
+  background-color:cadetblue;
+  border: solid 1px black;  
+  border-radius: 5px;
+  justify-content: center;
+}
+
+input#edit-post-content {
+  height: 100px;
+  width: 90%;
+  margin-right: 2px;
+  font-size: 15px;
+  padding: 3px;
+  display: flex;
+
+}
+
+input#edit-post-title {
+  width: 400px;
   font-size: 15px;
   padding: 3px;
 }
