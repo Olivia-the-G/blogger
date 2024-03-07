@@ -15,6 +15,7 @@
   <div class="comments-section">
     <form class="new-comment-form">
       <h4>Write a Comment:</h4>
+      <input type="hidden" id="blogpost-id" value="{{comment.blogpost_id}}">
       <input type="text" id="comment-form-content" required>
       <br>
       <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
@@ -37,3 +38,4 @@
   </div>
 </div>
 
+<script src="/js/comment.js"></script>

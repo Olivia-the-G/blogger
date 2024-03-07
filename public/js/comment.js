@@ -4,14 +4,14 @@ const newCommentHandler = async (event) => {
 
   // convert the comment to JSON
   const content = document.querySelector('#comment-form-content').value.trim();
-  const blogpost_id = document.querySelector('#blogpost_id').value.trim();
+  const blogpost_id = document.querySelector('#blogpost-id').value;
 
   // fetch the new comment route
   if (content) {
     try {
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ content, blogpost_id}),
+        body: JSON.stringify({ content, blogpost_id }),
         headers: {
           'Content-Type': 'application/json'
         },
@@ -30,5 +30,4 @@ const newCommentHandler = async (event) => {
 };
 
 // event listener for the new comment button
-document.getElementById('new-comment-btn')
-document.addEventListener('submit', newCommentHandler);
+document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler);
