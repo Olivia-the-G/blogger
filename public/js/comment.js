@@ -4,21 +4,22 @@ const newCommentHandler = async (event) => {
 
   // convert the comment to JSON
   const content = document.querySelector('#comment-form-content').value.trim();
-  const blogpost_id = document.querySelector('#blogpost-id').value;
-
+  const blogpost_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
   // fetch the new comment route
   if (content) {
     try {
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ content, blogpost_id }),
+        body: JSON.stringify({ blogpost_id, content }),
         headers: {
           'Content-Type': 'application/json'
         },
       });
-      // redirect to the updated blogpost once the new comment is created
+      // reload updated comments section
       if (response.ok) {
-        document.location.replace(`/dashboard`);
+        document.location.reload();
         console.log('New comment created');
       } else {
         throw new Error(response.statusText);
@@ -30,4 +31,5 @@ const newCommentHandler = async (event) => {
 };
 
 // event listener for the new comment button
-document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler);
+document.querySelector('.new-comment-form')
+document.addEventListener('submit', newCommentHandler);

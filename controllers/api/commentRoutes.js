@@ -6,6 +6,7 @@ const loglock = require('../../utils/logLock');
 router.post('/', loglock, async (req, res) => {
   try {
     const newComment = await Comment.create({
+      blogpost_id: req.body.blogpost_id,
       content: req.body.content,
       user_id: req.session.user_id,
     });
