@@ -1,0 +1,41 @@
+<div id="single-post">
+  <div class="blog-post">
+    <div class="post-header">
+      <h2><a href="/blogposts/{{blogpost.id}}">{{blogpost.post_title}}</a></h2>
+      <p>{{blogpost.date_created}}</p>
+    </div>
+    <div class="post-content">
+      <p>{{blogpost.content}}</p>
+    </div>
+    <button class="pretty-btn" id="edit-post" type="submit">Edit Post</button>
+    <button class="pretty-btn" id="delete-post" type="submit">Delete Post</button>
+  </div>
+
+  {{!-- create new comment --}}
+  <div class="comments-section">
+    <form class="new-comment-form">
+      <h4>Write a Comment:</h4>
+      <input type="hidden" id="blogpost-id" value="{{comment.blogpost_id}}">
+      <input type="text" id="comment-form-content" required>
+      <br>
+      <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
+    </form>
+
+    {{!-- show all comments for the post --}}
+    {{#each comments as |comment|}}
+    <div class="comment">
+      <div id="comment-header">
+        <p>{{comment.user.username}}</p>
+        <p>{{comment.date_created}}</p>
+      </div>
+      <div id="comment-content">
+        <p>{{comment.content}}</p>
+      </div>
+      <button class="pretty-btn" id="edit-comment" type="submit">Edit Comment</button>
+      <button class="pretty-btn" id="delete-comment" type="submit">Delete Comment</button>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>

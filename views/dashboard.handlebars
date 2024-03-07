@@ -1,7 +1,37 @@
-// shows the users blog posts and the option to create a new post
+<header>
+  <h2>Dashboard</h2>
+  <h3>Welcome, {{user.username}}</h3>
+</header>
 
-// when clicking the button to make a new post you are prompted with title and contents
+<div class="dash">
 
-// when user sends the post the dashboard is updated with the new post
+  {{!-- create new post --}}
+  <div id="new-post">
+    <form id="new-post-form">
+      <h3>Create a Post:</h3>
+      <label for="post-title">Title:</label>
+      <input type="text" id="post-title" required>
+      <br>
+      <label for="post-content">Content:</label>
+      <input type="text" id="post-content" required>
+      <br>
+      <button class="pretty-btn" type="submit">Post</button>
+    </form>
+  </div>
+  <div id="blog-posts">
+  {{!-- show all posts --}}
+  {{#each blogposts as |blogpost|}}
+  <div class="blog-post">
+    <div class="post-header">
+      <h2><a href="/blogposts/{{blogpost.id}}">{{blogpost.post_title}}</a></h2>
+      <p>{{blogpost.date_created}}</p>
+    </div>
+    <div class="post-content">
+      <p>{{blogpost.content}}</p>
+    </div>
+  </div>
+  {{/each}}
+  </div>
+</div>
 
-// when user clicks on one of their posts they are given the option to edit or delete the post
+<script src="/js/blogpost.js"></script>

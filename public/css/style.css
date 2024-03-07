@@ -4,8 +4,6 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--cream);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -28,6 +26,7 @@ nav {
   padding: 10px;
   border: solid 1px rgb(136, 136, 136);
   border-radius: 5px;
+  font-size: 16px;
 }
 
 nav ul {
@@ -42,7 +41,11 @@ nav ul li {
 
 a {
   text-decoration: none;
-  color: var(--cream);
+  color:midnightblue
+}
+
+h2 a {
+  color: black;
 }
 
 .title {
@@ -51,28 +54,32 @@ a {
   margin-bottom: 10px;
 }
 
-.article {
-  margin-bottom: 20px;
-}
-
-.article h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.article p {
-  line-height: 1.5;
-}
-
 .footer {
-  background-color: var(--dark-brown);
-  color: var(--cream);
   padding: 10px 0;
   text-align: center;
 }
 
+/* Dashboard formatting */
+
+.dash {
+  display: flex;
+  flex-direction: row;
+}
+
+#blog-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+#blog-posts-home {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 50px;
+}
+
+/* Blog Post formatting */
 .blog-post {
-  margin: 20px 30px;
+  margin: 10px 15px;
   padding: 10px;
   background-color:cadetblue;
   border: solid 1px black;
@@ -90,4 +97,142 @@ a {
 
 .post-content {
   font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* New Post Form */
+
+#new-post h3 {
+  margin: auto;
+  text-align: center;
+}
+
+#new-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 20px;
+  padding: 10px 25px;
+  background-color:cadetblue;
+  border: solid 1px black;  
+  border-radius: 5px;
+  justify-content: center;
+  width: 400px;
+}
+
+input {
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+input#post-content {
+  height: 100px;
+  width: 385px;
+  margin-right: 2px;
+  font-size: 15px;
+  padding: 3px;
+}
+
+input#post-title {
+  width: 350px;
+  font-size: 15px;
+  padding: 3px;
+}
+
+/* Login Page */
+
+input#login-username, input#login-password, input#signup-username, input#signup-password{
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 3px;
+}
+
+label {
+  padding: 3px;
+  font-size: 18px;
+}
+
+form.all-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 30px;
+  padding: 10px;
+  background-color:cadetblue;
+  border: solid 1px black;  
+  border-radius: 5px;
+  justify-content: center;
+}
+
+#login-page {
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/* buttons */
+
+.pretty-btn {
+  background-color: lightcyan;
+  border: solid double 1px rgb(27, 27, 27);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: midnightblue;
+  font-size: 16px;
+  margin: 0px 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* comments section */
+
+#single-post {
+  margin: 0px 50px;
+}
+
+.comments-section {
+  margin: 20px 15px;
+  padding: 20px;
+  background-color: lightcyan;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.comment {
+  padding: 10px;
+  background-color:rgb(120, 201, 204);
+  border: solid 1px black;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+#comment-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#comment-content {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input#comment-form-content {
+  height: 50px;
+  width: 500px;
+  font-size: 15px;
+  padding: 3px;
+  margin: 5px 0px;
 }
