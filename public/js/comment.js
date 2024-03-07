@@ -18,7 +18,7 @@ const newCommentHandler = async (event) => {
       });
       // redirect to the updated blogpost once the new comment is created
       if (response.ok) {
-        document.location.replace(`/blogposts/${blogpost_id}`);
+        document.location.replace(`/dashboard`);
         console.log('New comment created');
       } else {
         throw new Error(response.statusText);
