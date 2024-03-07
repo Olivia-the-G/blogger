@@ -1,7 +1,7 @@
 
 // add event listener to edit button
-const editBtn = document.getElementById('edit-post-btn')
-editBtn.addEventListener('click', triggerEditPost);
+const editBtnP = document.getElementById('edit-post-btn')
+editBtnP.addEventListener('click', triggerEditPost);
 
 // trigger edit post form when edit button is clicked
 function triggerEditPost(event) {
@@ -40,7 +40,7 @@ function triggerEditPost(event) {
 const editPostHandler = async (event) => {
   event.preventDefault();
 
-  // get the post id from the edit button
+  // get the post id
   const blogpost_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
