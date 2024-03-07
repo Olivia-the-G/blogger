@@ -33,4 +33,3 @@ const newPostHandler = async (event) => {
 // event listener for the new post button
 document.querySelector('new-post-form')
 document.addEventListener('submit', newPostHandler);
-
