@@ -102,6 +102,40 @@ const editCommentHandler = async (event) => {
   }
 }
 
+// delete comment event handler
+const deleteCommentHandler = async (event) => {
+  event.preventDefault();
+
+  const comment_id = event.target.getAttribute('data-comment-id');
+
+  const blogpost_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+  console.log(`Deleting comment at ${comment_id}`);
+
+  // fetch the delete comment route
+  try {
+    const response = await fetch(`/api/comments/${comment_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+
+    // reload page
+    if (response.ok) {
+      // document.location.replace(`/`);
+      console.log(`Comment deleted at ${comment_id}`);
+    } else {
+      throw new Error(response.statusText);
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+
 
 // event listener for the new comment button
 const newCommentSubmit = document.getElementById('new-comment-btn')
@@ -117,3 +151,9 @@ if (comments.length) {
 // event listener for the edit comment submission
 const editCommentSubmit = document.getElementById('save-comment-btn')
 editCommentSubmit.addEventListener('click', editCommentHandler);
+
+// event listener for the delete comment button
+if (comments.length) {
+  const deleteCommentBtn = document.getElementById('delete-comment-btn');
+  deleteCommentBtn.addEventListener('click', deleteCommentHandler);
+};
