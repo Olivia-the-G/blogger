@@ -4,7 +4,7 @@
 
 - [Description](#description)
 - [Usage](#usage)
-- [Demo](#demo)
+- [Preview](#preview)
 - [License](#license)
 - [Contact](#contact)
 
@@ -16,7 +16,8 @@ This application uses the **Express-Session** package to handle user profiles an
 ## Usage
 This project will be deployed on Heroku once finished
 
-## Demo
+## Preview
+![localhost_3001_](https://github.com/Olivia-the-G/blogger/assets/130778807/32d3cd6b-3c21-468b-9a09-8e5d1a280d36)
 
 
 ## License
