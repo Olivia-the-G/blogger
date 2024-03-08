@@ -11,31 +11,56 @@
     <button class="pretty-btn" id="delete-post-btn" type="submit">Delete Post</button>
   </div>
 
+  {{!-- edit post form --}}
+  <div id="edit-post" style="display: none;">
+    <form id="edit-post-form">
+      <h3>Edit Your Post:</h3>
+      <label for="edit-post-title">Title:</label>
+      <input type="text" id="edit-post-title" required>
+      <br>
+      <label for="edit-post-content">Content:</label>
+      <input type="text" id="edit-post-content" required>
+      <br>
+      <button class="pretty-btn" id="save-post-btn" type="submit">Save Changes</button>
+    </form>
+  </div>
+
   {{!-- create new comment --}}
   <div class="comments-section">
     <form class="new-comment-form">
       <h4>Write a Comment:</h4>
-      <input type="hidden" id="blogpost-id" value="{{comment.blogpost_id}}">
       <input type="text" id="comment-form-content" required>
       <br>
       <button class="pretty-btn" id="new-comment-btn" type="submit">Post</button>
     </form>
+
+    {{!-- edit comment form --}}
+    <div id="edit-comment" style="display: none;">
+      <form class="edit-comment-form">
+        <h4>Write a Comment:</h4>
+        <input type="text" id="edit-comment-content" required>
+        <br>
+        <button class="pretty-btn" id="save-comment-btn" type="submit">Save Changes</button>
+      </form>
+    </div>
 
     {{!-- show all comments for the post --}}
     {{#each comments as |comment|}}
     <div class="comment">
       <div id="comment-header">
         <p>{{comment.user.username}}</p>
+        <p id="comment-id" value="{{comment.id}}">{{comment.id}}</p>
         <p>{{comment.date_created}}</p>
       </div>
       <div id="comment-content">
         <p>{{comment.content}}</p>
       </div>
-      <button class="pretty-btn" id="edit-comment-btn" type="submit">Edit Comment</button>
+      <button class="pretty-btn" id="edit-comment-btn" type="submit" data-comment-id="{{comment.id}}">Edit Comment</button>
       <button class="pretty-btn" id="delete-comment-btn" type="submit">Delete Comment</button>
     </div>
     {{/each}}
   </div>
 </div>
 
+<script src="/js/blogpost.js"></script>
 <script src="/js/comment.js"></script>
