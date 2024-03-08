@@ -14,7 +14,7 @@ This project is a CMS-Style Tech Blog application that features a **Sequelize ba
 This application uses the **Express-Session** package to handle user profiles and session data allowing users to log in and interact with the blogging platform. And finally, in the front end the view engine is set up using **Handlebars**.
 
 ## Usage
-This project will be deployed on Heroku once finished
+This project is deployed on Heroku --> https://blogger-like-frogger-59f0220c1556.herokuapp.com/ 
 
 ## Preview
 ![localhost_3001_](https://github.com/Olivia-the-G/blogger/assets/130778807/32d3cd6b-3c21-468b-9a09-8e5d1a280d36)
