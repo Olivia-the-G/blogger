@@ -125,7 +125,7 @@ const deleteCommentHandler = async (event) => {
 
     // reload page
     if (response.ok) {
-      // document.location.replace(`/`);
+      document.location.replace(`/`);
       console.log(`Comment deleted at ${comment_id}`);
     } else {
       throw new Error(response.statusText);
